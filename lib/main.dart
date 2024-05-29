@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projetoperguntas2/questao.dart';
 
 main() {
  runApp(PerguntaApp());
@@ -12,11 +13,11 @@ class PerguntaApp extends StatefulWidget {
 }
 
 class _PerguntaAppState extends State<PerguntaApp> {
-  var perguntaSelecionada = 0;
+  var _perguntaSelecionada = 0;
 
-  void responder() {
+  void _responder() {
     setState(() {
-      perguntaSelecionada++;
+      _perguntaSelecionada++;
     });
     print('Pergunta respondida');
   }
@@ -35,10 +36,10 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(
           children: [
-            Text(perguntas[perguntaSelecionada]),
-            FilledButton(onPressed: responder, child: Text('Resposta 1')),
-            FilledButton(onPressed: responder, child: Text('Resposta 2')),
-            FilledButton(onPressed: responder, child: Text('Resposta 3'))
+            Questao(perguntas[_perguntaSelecionada]),
+            FilledButton(onPressed: _responder, child: Text('Resposta 1')),
+            FilledButton(onPressed: _responder, child: Text('Resposta 2')),
+            FilledButton(onPressed: _responder, child: Text('Resposta 3'))
           ],
         ),
       ),
