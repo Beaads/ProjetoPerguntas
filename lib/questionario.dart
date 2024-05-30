@@ -29,21 +29,19 @@ class Questionario extends StatelessWidget {
         Questao(perguntas[perguntaSelecionada]['texto'].toString()),
         ...respostas.map((resp) {
           String textoResp = resp['texto']?.toString() ?? 'No Text';
-          String pontuacaoStr = resp['pontuacao']?.toString() ?? '0';
+          String notaStr = resp['nota']?.toString() ?? '0';
 
-          int? pontuacao = int.tryParse(pontuacaoStr);
-          if (pontuacao == null) {
+          int? nota = int.tryParse(notaStr);
+          if (nota == null) {
             return Container(child: Text('Invalid score'));
           }
 
           return Resposta(
             textoResp,
-                () => responder(pontuacao),
+                () => responder(nota),
           );
         }).toList(),
       ],
     );
-
-
   }
 }
